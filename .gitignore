@@ -1,9 +1,5 @@
 node_modules
-frontend/dist
-src-tauri/target
-src-tauri/gen/schemas
-
-# 静态 FFmpeg 由 scripts/download_ffmpeg.sh 下载，不入库
-src-tauri/binaries/
-
+dist
+dashou-dist
 .DS_Store
+*.log

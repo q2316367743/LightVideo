@@ -1,16 +1,27 @@
 {
   "name": "lightvideo",
-  "version": "1.0.1",
-  "description": "轻影 LightVideo - FFmpeg 视频工具箱。压缩、转格式、提取音频、剪辑、转 GIF、截图。",
   "private": true,
-  "scripts": {
-    "tauri": "tauri",
-    "dev": "tauri dev",
-    "build": "tauri build"
-  },
+  "version": "1.0.0",
+  "type": "module",
+  "description": "轻影 LightVideo · FFmpeg 视频工具箱（搭手插件）",
   "author": "云中江树",
   "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm typecheck && vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc -b tsconfig.json",
+    "plugin:build": "dashou-plugin build"
+  },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.11.4"
+    "@dashou/api": "link:../../app/da-shou-plugin-ext/packages/api",
+    "@dashou/cli": "link:../../app/da-shou-plugin-ext/packages/cli",
+    "@dashou/core": "link:../../app/da-shou-plugin-ext/packages/core",
+    "@types/node": "^22.19.17",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.6",
+    "vue": "^3.5.44",
+    "vue-tsc": "^3.3.14"
   }
 }
