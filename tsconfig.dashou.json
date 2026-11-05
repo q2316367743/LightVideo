@@ -15,5 +15,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["src-dashou/**/*.ts"]
+  "include": ["src-dashou/**/*.ts"],
+  "exclude": ["src-dashou/dashou-dist", "src-dashou/ui"]
 }

@@ -11,5 +11,8 @@ export default defineConfig({
   base: './',
   plugins: [vue()],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
-  server: { port: 5175 }
+  server: {
+    port: 5175,
+    watch: { ignored: ['**/src-dashou/dashou-dist/**', '**/src-dashou/ui/**'] }
+  }
 })

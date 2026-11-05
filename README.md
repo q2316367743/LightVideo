@@ -13,8 +13,8 @@ pnpm install
 pnpm plugin:build
 ```
 
-产物：`dashou-dist/com.dashou.lightvideo-1.0.0.dsp`。
-在搭手「插件管理 → 安装插件」选择它，或直接双击；也可以「开发者工具 → 添加项目」选 `src-dashou` 调试。
+产物：`src-dashou/dashou-dist/com.dashou.lightvideo-1.0.0.dsp`。
+在搭手「插件管理 → 安装插件」选择它，或直接双击；开发时用 `pnpm plugin:dev`，开发者工具添加项目选 `src-dashou`。
 
 ## 十七个工具
 
@@ -51,6 +51,8 @@ src-dashou/
   plugin.json        插件清单：窗口、命令、能力
   index.ts           后台 core：文件选择、输出路径、临时文件、concat 列表、读预览图、定位文件
   assets/icon.png
+  core.mjs           dev 生成（gitignore）
+  dashou-dist/       build 生成（gitignore）
 src/dev/mock.ts      仅开发期：普通浏览器里模拟宿主桥，方便调 UI
 docs/screenshots/    界面截图
 ```
@@ -64,9 +66,11 @@ docs/screenshots/    界面截图
 pnpm dev          # 浏览器预览（带 mock）：http://localhost:5175
 pnpm typecheck    # vue-tsc -b
 pnpm build        # typecheck + vite build
+pnpm plugin:dev   # 起 Vite + 把 core.mjs 打到 src-dashou/ 并 watch
 ```
 
-真实宿主调试：开发者工具添加 `src-dashou` →「开发」，页面来自 `build.devUrl`；改 `core.mjs` / `plugin.json` 后点「重新加载」。
+真实宿主调试：`pnpm plugin:dev` 后，开发者工具添加 `src-dashou` →「开发」，页面来自 `build.devUrl`；
+改 core 会自动重建，点「重新加载」生效；改 `plugin.json` / assets 后也点「重新加载」。
 窗口内 F12 打开开发者工具（仅开发版）。
 
 ## 许可
